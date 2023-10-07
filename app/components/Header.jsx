@@ -16,15 +16,18 @@ const Header = () => {
 
     return (
         <nav className="container relative mx-auto p-5">
-            <div className="flex items-center justify-between gap-x-3 bg-black rounded-full border-solid border-2 px-5 py-2">
-                <div className="text-xl">
-                    <FontAwesomeIcon icon={faCompactDisc} /> Cine-X
-                </div>
+            <div className="flex items-center justify-between gap-x-3 bg-bgcolor rounded-full border-dashed border-stone-300 border-2 px-5 py-2">
+                <Link href="/" className="text-xl">
+                    <FontAwesomeIcon icon={faCompactDisc} className="text-blue-500" /> Cine-X
+                </Link>
                 <div className="space-x-5 hidden md:flex">
-                    <Link href="/" className="hover:text-blue-500 transition-all">
+                    <Link href="/" className="hover:text-blue-600 transition-all">
+                        Home
+                    </Link>
+                    <Link href="/" className="hover:text-blue-600 transition-all">
                         Movies
                     </Link>
-                    <Link href="/" className="hover:text-blue-500 transition-all">
+                    <Link href="/" className="hover:text-blue-600 transition-all">
                         Shows
                     </Link>
                 </div>
@@ -32,7 +35,7 @@ const Header = () => {
                 <div className="hidden space-x-3 md:flex">
                     <Link
                         href="/"
-                        className="px-8 p-2 baseline rounded-full border-2 border-transparent text-secondColor bg-blue-500 hover:bg-blue-600 transition-all"
+                        className="px-8 p-2 baseline rounded-full border-2 border-transparent bg-blue-600 hover:bg-blue-700 transition-all"
                     >
                         Login
                     </Link>
@@ -48,17 +51,17 @@ const Header = () => {
 
             <div
                 className={`md:hidden ${menuVisible ? "flex" : "hidden"
-                    } flex-col bg-zinc-950 items-center text-center self-center transition-all mt-10 py-5 space-y-5`}
+                    } flex-col bg-bgColor items-center text-center self-center transition-all mt-10 py-5 space-y-5`}
             >
-                <Link href="/" className="hover:text-blue-500 transition-all">
+                <Link href="/" className="hover:text-blue-600 transition-all">
                     Movies
                 </Link>
-                <Link href="/" className="hover:text-blue-500 transition-all">
+                <Link href="/" className="hover:text-blue-600 transition-all">
                     Shows
                 </Link>
                 <Link
                     href="/"
-                    className="px-8 p-2 baseline rounded-full border-2 border-transparent text-secondColor bg-blue-500 hover:bg-blue-600 transition-all"
+                    className="px-8 p-2 baseline rounded-full border-2 border-transparent text-secondColor bg-blue-600 hover:bg-blue-700 transition-all"
                 >
                     Login
                 </Link>
