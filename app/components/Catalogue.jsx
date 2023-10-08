@@ -7,7 +7,7 @@ import Header from "./Header";
 const Catalogue = ({ data, heading }) => {
     return (
         <>
-            <Header />
+            <Header showLogin={false} />
             <div className="container max-w-6xl mx-auto pb-10 px-6">
                 <h1 className="text-white text-2xl mt-8 mb-5">{heading}</h1>
                 <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

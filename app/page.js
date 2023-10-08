@@ -17,7 +17,7 @@ export default async function Home() {
   }
   return (
     <>
-      <Header />
+      <Header showLogin={true} />
       <div
         className="container my-12 mx-auto h-main-h rounded-lg bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${imgLink})` }}

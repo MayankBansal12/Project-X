@@ -3,8 +3,33 @@
 import Catalogue from "../components/Catalogue";
 import { useQuery } from "@tanstack/react-query";
 import { fetchData } from "../hooks/useFetchData";
+import { useEffect, useState } from "react";
+import supabase from "@/supabse";
+import { useRouter } from "next/navigation";
 
 const page = () => {
+  const router = useRouter();
+  const [login, setLogin] = useState(false);
+
+  useEffect(() => {
+    const checkUserLogin = async () => {
+      try {
+        const {
+          data: { user },
+        } = await supabase.auth.getUser();
+        if (user?.role === "authenticated") {
+          setLogin(true);
+        } else {
+          router.push("/auth/login");
+        }
+      } catch (error) {
+        console.log("Error: ", error);
+      }
+    };
+
+    checkUserLogin();
+  }, []);
+
   const {
     data: movies,
     isLoading,
@@ -26,7 +51,9 @@ const page = () => {
       </div>
     );
   }
-  return <Catalogue data={movies} heading={"What's Popular in Movies"} />;
+  if (login) {
+    return <Catalogue data={movies} heading={"What's Popular in Movies"} />;
+  }
 };
 
 export default page;

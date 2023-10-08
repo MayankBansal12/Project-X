@@ -3,6 +3,9 @@
 import Link from "next/link";
 import { useState } from "react";
 import Footer from "./Footer";
+import supabase from "@/supabse";
+import { useRouter } from "next/navigation";
+
 // import Noty from "noty";
 // import 'noty/lib/noty.css';
 // import "noty/lib/themes/semanticui.css";
@@ -10,6 +13,7 @@ import Footer from "./Footer";
 const Signup = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const router = useRouter();
 
     // Noty js notification
     // const successNoty = new Noty({
@@ -25,8 +29,26 @@ const Signup = () => {
     //     timeout: 3000,
     // });
 
-    const handleLogin = async () => {
+    const handleSignup = async () => {
+        try {
+            const { user, error } = await supabase.auth.signUp({
+                email: email,
+                password: password,
+            });
 
+            if (error) {
+                // Authentication error
+                console.error('Authentication error:', error.message);
+                alert("Error! Try again!")
+            } else {
+                // Authentication successful, redirect to movies page
+                console.log('Authenticated user:', user);
+                router.push("/auth/login");
+            }
+        } catch (error) {
+            alert("Error! Try again!")
+            console.error('Unexpected error:', error.message);
+        }
     };
 
     return (
@@ -48,7 +70,7 @@ const Signup = () => {
                         className="border-b-2 outline-none px-1 bg-transparent text-md"
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <button type="button" onClick={handleLogin} className="px-8 p-2 baseline rounded-full border-2 border-transparent bg-blue-600 hover:bg-blue-700 mt-4 transition-all">Signup</button>
+                    <button type="button" onClick={handleSignup} className="px-8 p-2 baseline rounded-full border-2 border-transparent bg-blue-600 hover:bg-blue-700 mt-4 transition-all">Signup</button>
                 </form>
                 <div className="links">
                     <p>

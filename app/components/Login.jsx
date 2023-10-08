@@ -3,6 +3,9 @@
 import Link from "next/link";
 import { useState } from "react";
 import Footer from "./Footer";
+import supabase from "@/supabse";
+import { useRouter } from "next/navigation";
+
 // import Noty from "noty";
 // import 'noty/lib/noty.css';
 // import "noty/lib/themes/semanticui.css";
@@ -24,10 +27,30 @@ const Login = () => {
     //     theme: "semanticui",
     //     timeout: 3000,
     // });
+    const router = useRouter();
 
     const handleLogin = async () => {
+        try {
+            const { user, error } = await supabase.auth.signInWithPassword({
+                email: email,
+                password: password,
+            });
 
+            if (error) {
+                // Authentication error
+                console.error('Authentication error:', error.message);
+                alert("Incorrect Email or Password!")
+            } else {
+                // Authentication successful, redirect to movies page
+                console.log('Authenticated user:', user);
+                router.push("/movies", { replace: true });
+            }
+        } catch (error) {
+            alert("Error! Try again!")
+            console.error('Unexpected error:', error.message);
+        }
     };
+
 
     return (
         <>
@@ -37,14 +60,14 @@ const Login = () => {
                     <input
                         type="email"
                         value={email}
-                        placeholder="Enter your email"
+                        placeholder="user@gmail.com"
                         className="border-b-2 outline-none px-1 bg-transparent text-md "
                         onChange={(e) => setEmail(e.target.value)}
                     />
                     <input
                         type="password"
                         value={password}
-                        placeholder="Enter your password here"
+                        placeholder="user123"
                         className="border-b-2 outline-none px-1 bg-transparent text-md"
                         onChange={(e) => setPassword(e.target.value)}
                     />

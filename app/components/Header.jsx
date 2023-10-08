@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCompactDisc } from '@fortawesome/free-solid-svg-icons'
 
 
-const Header = () => {
+const Header = ({ showLogin }) => {
     const [menuVisible, setMenuVisible] = useState(false);
 
     const toggleMenu = () => {
@@ -29,14 +29,14 @@ const Header = () => {
                     </Link>
                 </div>
 
-                <div className="hidden space-x-3 md:flex">
+                {showLogin && <div className="hidden space-x-3 md:flex">
                     <Link
                         href="/auth/login"
                         className="px-8 p-2 baseline rounded-full border-2 border-transparent bg-blue-600 hover:bg-blue-700 transition-all"
                     >
                         Login
                     </Link>
-                </div>
+                </div>}
                 <button
                     type="button"
                     onClick={toggleMenu}
@@ -56,12 +56,12 @@ const Header = () => {
                 <Link href="/shows" className="hover:text-blue-600 transition-all">
                     Shows
                 </Link>
-                <Link
+                {showLogin && <Link
                     href="/auth/login"
                     className="px-8 p-2 baseline rounded-full border-2 border-transparent text-secondColor bg-blue-600 hover:bg-blue-700 transition-all"
                 >
                     Login
-                </Link>
+                </Link>}
             </div>
         </nav>
     );
