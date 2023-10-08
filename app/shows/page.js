@@ -12,13 +12,21 @@ const page = () => {
   } = useQuery(["tvShows"], () => fetchData("/tv/top_rated"));
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        Loading...
+      </div>
+    );
   }
 
   if (isError) {
-    return <div>Error loading data.</div>;
+    return (
+      <div className="flex justify-center items-center h-screen text-red-700">
+        Error loading data.
+      </div>
+    );
   }
-  return <Catalogue data={shows} />;
+  return <Catalogue data={shows} heading={"Explore some amazing tv shows"} />;
 };
 
 export default page;

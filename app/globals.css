@@ -20,3 +20,11 @@ body {
   color: rgb(var(--foreground-rgb));
   background: #121212;
 }
+
+::-webkit-scrollbar{
+  display: none;
+}
+
+::-webkit-scrollbar-thumb{
+  display: none;
+}

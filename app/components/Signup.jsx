@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import Footer from "./Footer";
 // import Noty from "noty";
 // import 'noty/lib/noty.css';
 // import "noty/lib/themes/semanticui.css";
@@ -29,6 +30,7 @@ const Signup = () => {
     };
 
     return (
+        <>
             <div className="flex flex-col justify-center items-center h-screen gap-4">
                 <h1 className="text-white text-2xl mt-8 mb-3">Signup</h1>
                 <form className="flex flex-col gap-5 w-64">
@@ -54,6 +56,8 @@ const Signup = () => {
                     </p>
                 </div>
             </div>
+            <Footer />
+        </>
     );
 };
 

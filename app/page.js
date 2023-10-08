@@ -5,6 +5,7 @@ config.autoAddCss = false;
 import Link from "next/link";
 import { fetchData } from "./hooks/useFetchData";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export default async function Home() {
   const data = await fetchData("/movie/upcoming");
@@ -18,7 +19,7 @@ export default async function Home() {
     <>
       <Header />
       <div
-        className="container my-9 mx-auto h-main-h rounded-lg bg-cover bg-center bg-no-repeat"
+        className="container my-12 mx-auto h-main-h rounded-lg bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${imgLink})` }}
       >
         <div className="text-center flex justify-center align-center w-full h-full flex-col rounded-lg bg-gradient-effect">
@@ -28,13 +29,14 @@ export default async function Home() {
           <p className="text-gray-300 text-lg pt-3 pb-10 md:text-xl">
             Limitless tv shows, movies waiting for you. Explore Now.
           </p>
-          <Link href="/">
+          <Link href="/auth/login">
             <button className="px-8 p-3 baseline rounded-full border-2 border-transparent bg-blue-600 hover:bg-blue-700 transition-all">
               Login to Search!
             </button>
           </Link>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

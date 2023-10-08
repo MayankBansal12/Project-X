@@ -21,9 +21,6 @@ const Header = () => {
                     <FontAwesomeIcon icon={faCompactDisc} className="text-blue-500" /> Cine-X
                 </Link>
                 <div className="space-x-5 hidden md:flex">
-                    <Link href="/" className="hover:text-blue-600 transition-all">
-                        Home
-                    </Link>
                     <Link href="/movies" className="hover:text-blue-600 transition-all">
                         Movies
                     </Link>
@@ -34,7 +31,7 @@ const Header = () => {
 
                 <div className="hidden space-x-3 md:flex">
                     <Link
-                        href="/"
+                        href="/auth/login"
                         className="px-8 p-2 baseline rounded-full border-2 border-transparent bg-blue-600 hover:bg-blue-700 transition-all"
                     >
                         Login
@@ -60,7 +57,7 @@ const Header = () => {
                     Shows
                 </Link>
                 <Link
-                    href="/"
+                    href="/auth/login"
                     className="px-8 p-2 baseline rounded-full border-2 border-transparent text-secondColor bg-blue-600 hover:bg-blue-700 transition-all"
                 >
                     Login
