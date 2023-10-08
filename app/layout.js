@@ -2,10 +2,9 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import Providers from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
-const imgLink =
-  "https://image.tmdb.org/t/p/original/iiXliCeykkzmJ0Eg9RYJ7F2CWSz.jpg";
 
 export const metadata = {
   title: "CineVerse - Gives you something to watch",
@@ -17,15 +16,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        <main
-          className={
-            "container my-9 mx-auto h-main-h rounded-lg bg-cover bg-center bg-no-repeat"
-          }
-          style={{ backgroundImage: `url(${imgLink})` }}
-        >
-          {children}
-        </main>
-        <Footer />
+        <Providers>
+          <main>
+            {children}
+          </main>
+        </Providers>
       </body>
     </html>
   );

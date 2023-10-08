@@ -24,10 +24,10 @@ const Header = () => {
                     <Link href="/" className="hover:text-blue-600 transition-all">
                         Home
                     </Link>
-                    <Link href="/" className="hover:text-blue-600 transition-all">
+                    <Link href="/movies" className="hover:text-blue-600 transition-all">
                         Movies
                     </Link>
-                    <Link href="/" className="hover:text-blue-600 transition-all">
+                    <Link href="/shows" className="hover:text-blue-600 transition-all">
                         Shows
                     </Link>
                 </div>
@@ -53,10 +53,10 @@ const Header = () => {
                 className={`md:hidden ${menuVisible ? "flex" : "hidden"
                     } flex-col bg-bgColor items-center text-center self-center transition-all mt-10 py-5 space-y-5`}
             >
-                <Link href="/" className="hover:text-blue-600 transition-all">
+                <Link href="/movies" className="hover:text-blue-600 transition-all">
                     Movies
                 </Link>
-                <Link href="/" className="hover:text-blue-600 transition-all">
+                <Link href="/shows" className="hover:text-blue-600 transition-all">
                     Shows
                 </Link>
                 <Link
