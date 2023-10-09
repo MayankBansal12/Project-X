@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import Footer from "./Footer";
-import supabase from "@/supabse";
 import { useRouter } from "next/navigation";
+import supabase from "@/supabse";
+import Footer from "./Footer";
 
 // import Noty from "noty";
 // import 'noty/lib/noty.css';
@@ -29,6 +29,7 @@ const Login = () => {
     // });
     const router = useRouter();
 
+    // Function to authenticate user using Supabase
     const handleLogin = async () => {
         try {
             const { user, error } = await supabase.auth.signInWithPassword({

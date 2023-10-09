@@ -1,12 +1,14 @@
 "use client";
 
-// import Link from "next/link";
+// Catelogue.jsx used to show movies/shows info at /movies, /shows
+
 import Image from "next/image";
 import Header from "./Header";
 
 const Catalogue = ({ data, heading }) => {
     return (
         <>
+            {/* showLogin prop to make sure the login button is not visible since the component will be accessible after authentication */}
             <Header showLogin={false} />
             <div className="container max-w-6xl mx-auto pb-10 px-6">
                 <h1 className="text-white text-2xl mt-8 mb-5">{heading}</h1>

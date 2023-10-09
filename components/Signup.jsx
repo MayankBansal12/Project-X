@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import Footer from "./Footer";
-import supabase from "@/supabse";
 import { useRouter } from "next/navigation";
+import supabase from "@/supabse";
+import Footer from "./Footer";
 
 // import Noty from "noty";
 // import 'noty/lib/noty.css';
@@ -29,7 +29,9 @@ const Signup = () => {
     //     timeout: 3000,
     // });
 
+
     const handleSignup = async () => {
+        // Signing up user using Supabase
         try {
             const { user, error } = await supabase.auth.signUp({
                 email: email,
@@ -41,7 +43,7 @@ const Signup = () => {
                 console.error('Authentication error:', error.message);
                 alert("Error! Try again!")
             } else {
-                // Authentication successful, redirect to movies page
+                // Authentication successful, redirect to login page
                 console.log('Authenticated user:', user);
                 router.push("/auth/login");
             }

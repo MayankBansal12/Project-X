@@ -1,8 +1,8 @@
 "use client";
 
-import Catalogue from "../components/Catalogue";
+import Catalogue from "../../components/Catalogue";
 import { useQuery } from "@tanstack/react-query";
-import { fetchData } from "../hooks/useFetchData";
+import { fetchData } from "../../hooks/useFetchData";
 import { useEffect, useState } from "react";
 import supabase from "@/supabse";
 import { useRouter } from "next/navigation";
@@ -12,6 +12,7 @@ const page = () => {
   const [login, setLogin] = useState(false);
 
   useEffect(() => {
+    // Authenticating the user
     const checkUserLogin = async () => {
       try {
         const {
@@ -20,6 +21,7 @@ const page = () => {
         if (user?.role === "authenticated") {
           setLogin(true);
         } else {
+          // Redirecting in case of unauthenticated user!
           router.push("/auth/login");
         }
       } catch (error) {

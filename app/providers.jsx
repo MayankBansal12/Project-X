@@ -1,5 +1,7 @@
 'use client'
 
+// Query Provider required for using react-query
+
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { useState } from 'react'
 

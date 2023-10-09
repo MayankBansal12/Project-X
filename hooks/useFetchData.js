@@ -1,3 +1,5 @@
+// Used to fetch Data from TMDB API using axios
+
 import axios from "axios";
 
 export const fetchData = async (endpoint) => {

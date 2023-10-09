@@ -1,3 +1,5 @@
+// Creating supabase client to use auth in the project
+
 const { createClient } = require("@supabase/supabase-js");
 
 const supabaseURL = process.env.NEXT_PUBLIC_SUPABASE_URL;

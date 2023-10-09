@@ -3,15 +3,16 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import supabase from "@/supabse";
-import Catalogue from "../components/Catalogue";
+import Catalogue from "../../components/Catalogue";
 import { useQuery } from "@tanstack/react-query";
-import { fetchData } from "../hooks/useFetchData";
+import { fetchData } from "../../hooks/useFetchData";
 
 const page = () => {
   const [login, setLogin] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
+    // Authenticating the user
     const checkUserLogin = async () => {
       try {
         const {
@@ -20,6 +21,7 @@ const page = () => {
         if (user?.role === "authenticated") {
           setLogin(true);
         } else {
+          // Redirecting to login page in case of unauthenticated user!
           router.push("/auth/login");
         }
       } catch (error) {
@@ -30,6 +32,7 @@ const page = () => {
     checkUserLogin();
   }, []);
 
+  // Fetching show data using react-query
   const {
     data: shows,
     isLoading,

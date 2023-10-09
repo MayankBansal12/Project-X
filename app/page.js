@@ -1,16 +1,21 @@
+// Font Awesome config
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 config.autoAddCss = false;
 
 import Link from "next/link";
-import { fetchData } from "./hooks/useFetchData";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import { fetchData } from "../hooks/useFetchData";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
+// Landing page '/' route
 export default async function Home() {
   const data = await fetchData("/movie/upcoming");
   const randomNum = Math.floor(Math.random() * 20);
   let imgLink;
+
+  // Background Image
+  // Fetches 20 upcoming movies and a random one is picked up for banner imags
   if (data) {
     imgLink =
       `https://image.tmdb.org/t/p/original/` + data[randomNum]?.backdrop_path;
